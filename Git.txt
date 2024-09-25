@@ -13,18 +13,19 @@ git config --global user.name "patricionog"
 git config --global user.email "patricioe.nogueroles@gmail.com"
 4. Copiar el path de la carpeta dónde se va a clonar el repositorio y navegar hacia ahí en la terminal.
 cd 'C:\Users\tomas\Documents\Programación\Github'
-5. Clonar repositorio (Comando de git + Link HTTPS + 'Nombre de la carpeta'):
-git clone https://github.com/usuario/nombre-del-repositorio.git https://github.com/patricionog/Tesio.git 'Tesis'
-6. Si tenés archivos que quieras agregar, los copiás a esa carpeta y navegás al terminal a ella. Ahí ponés:
+5. Buscar el link del repositorio en el repositorio web: es el HTTPS.
+6. Clonar repositorio (Comando de git + Link HTTPS + 'Nombre de la carpeta'):
+git --clone https://github.com/usuario/nombre-del-repositorio.git https://github.com/patricionog/Tesio.git Tesis
+7. Si tenés archivos que quieras agregar, los copiás a esa carpeta y navegás al terminal a ella. Ahí ponés:
 git add .
-7. Si querés "empujar" (push) los cambios que hiciste en la carpeta al repositorio:
+8. Si querés "empujar" (push) los cambios que hiciste en la carpeta al repositorio:
 git push main
 
 Resumen:
 1. git config --global user.name "patricionog"
 2. git config --global user.email "patricioe.nogueroles@gmail.com"
 3. cd 'C:\Users\tomas\Documents\Programación\Github'
-4. git clone https://github.com/usuario/nombre-del-repositorio.git https://github.com/patricionog/Tesio.git 'Tesis'
+4. git clone https://github.com/usuario/nombre-del-repositorio.git https://github.com/patricionog/Tesio.git Tesis
 
 
 #### VERIFICAR ESTADO DEL REPOSITORIO.
@@ -46,3 +47,7 @@ Si querés agregar todos los archivos:
 
 git add .
 
+
+#### MOVER CARPETAS CON REPOSITORIOS.
+
+Move-Item -Path "Path viejo (incluyendo carpeta)" -Destination "Path nuevo (incluyendo carpeta)"
