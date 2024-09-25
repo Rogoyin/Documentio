@@ -1,0 +1,48 @@
+#### INICIO.
+
+1. Descargar GIT: https://git-scm.com/
+2. Descargar la extensión de Git
+
+
+#### CLONAR REPOSITORIO.
+
+1. Abrir la terminal
+2. Iniciar sesión con el usuario: 
+git config --global user.name "patricionog"
+3. Iniciar sesión con el mail: 
+git config --global user.email "patricioe.nogueroles@gmail.com"
+4. Copiar el path de la carpeta dónde se va a clonar el repositorio y navegar hacia ahí en la terminal.
+cd 'C:\Users\tomas\Documents\Programación\Github'
+5. Clonar repositorio (Comando de git + Link HTTPS + 'Nombre de la carpeta'):
+git clone https://github.com/usuario/nombre-del-repositorio.git https://github.com/patricionog/Tesio.git 'Tesis'
+6. Si tenés archivos que quieras agregar, los copiás a esa carpeta y navegás al terminal a ella. Ahí ponés:
+git add .
+7. Si querés "empujar" (push) los cambios que hiciste en la carpeta al repositorio:
+git push main
+
+Resumen:
+1. git config --global user.name "patricionog"
+2. git config --global user.email "patricioe.nogueroles@gmail.com"
+3. cd 'C:\Users\tomas\Documents\Programación\Github'
+4. git clone https://github.com/usuario/nombre-del-repositorio.git https://github.com/patricionog/Tesio.git 'Tesis'
+
+
+#### VERIFICAR ESTADO DEL REPOSITORIO.
+
+O sea, si hay archivos qué subir o no.
+git status
+
+
+#### EMPUJAR CAMBIOS (PUSH).
+
+git push main
+
+
+#### AGREGAR ARCHIVOS DE LA CARPETA LOCAL AL REPOSITORIO.
+
+git add 'Archivo.txt'
+
+Si querés agregar todos los archivos:
+
+git add .
+
