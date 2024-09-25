@@ -1,0 +1,76 @@
+/* Flexbox */
+/* Posiciona elementos hijos en una dirección: filas (row) o columnas (column). Se flexibiliza, es una caja flexible y trata de tomar todo el espacio disponible. */
+/* Si estás adentro de un contenedor, hay que usar Flexbox */
+
+nav{
+    display: flex; /* Posiciona por default los elementos hijos de izquierda a derecha */
+    flex-direction: column; /* Posiciona de arriba a abajo */
+    flex-direction: row-reverse; /* Posiciona de derecha a izquierda */
+    flex-direction: column-reverse; /* Posiciona de abajo hacia arriba */
+}
+
+/* Alinear vertical y horizontalmente los elementos hijos con Flexbox */
+
+nav{
+    /* Primer caso: elementos dispuestos horizontalmente. */
+    flex-direction: row;
+    /* Alineación horizontal */
+    justify-content: space-between; /* Espacio entre elementos */
+    justify-content: center; /* Todos al centro */
+    justify-content: space-around; /* Espacio entre ellos y los bordes */
+    justify-content: flex-start; /* A la izquierda, es el default */
+    justify-content: flex-end; /* A la derecha */
+    /* Alineación vertical */
+    align-items: flex-start; /* Arriba */
+    align-items: center;
+    align-items: flex-end; /* Abajo */
+    align-items: stretch; /* Estira por todo lo alto del contenedor */
+    align-items: baseline;
+}
+
+nav{
+    /* Segundo caso: elementos dispuestos verticalmente. Es lo opuesto. */
+    flex-direction: column;
+    /* Alineación horizontal */
+    align-items: center;
+    /* Alineación vertical */
+    justify-content: center; 
+    gap: 1rem; /* Separación, pero no está muy soportado en los navegadores */
+}
+
+/* Flex basis.
+Es la base del ancho. Después puede agrandarse. Funciona desde el elemento hijo, no como las demás propiedades de Flexbox */
+
+.nav-hijo1{
+    flex-basis: 50rem; /* Es la anchura (width) inicial respecto al contenedor padre: en caso de tener un contenido que lo sobrepasa, se agranda, por eso el nombre de Flex (flexible) */
+    flex-basis: 50%; /* También puede determinarse el porcentaje que ocupa en el contenedor padre */
+}
+
+/* Flex Wrap 
+Saltos de línea si hay más elementos de los que entran. */
+
+.Contenedor-con-6-elementos .Elemento{
+    flex-basis: 33.3%; /* Tres elementos por fila */
+    flex-wrap: wrap; /* Salto de línea; por defecto hay un "nowrap" */
+}
+
+/* Flex Grow 
+Factor de crecimiento. Se usa para que distintos elementos tengan tamaños relativos entre sí. */
+
+.Contenedor .Elemento{
+    flex-grow: 1; /* Crece los elementos para que tomen todo el ancho disponible: les da, a cada elemento, 1px por vez, ya que se indica un 1 en el factor de crecimiento */
+}
+
+/* Flex Shrink. 
+Factor de achicamiento: como Flex Grow pero a la inversa */
+
+.Contenedor .Elemento{
+    flex-shrink: 1; /* Se achican en un mismo porcentaje todos los elementos */
+}
+
+/* Flex Shorthand. 
+Es como el factor de crecimiento, achicamiento y basis todo junto */
+
+.Contenedor .Elemento{
+    flex: 1 0 33.3%; 
+}

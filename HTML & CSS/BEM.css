@@ -1,0 +1,28 @@
+/* BEM */
+
+/* 
+
+Se agregan clases a todos los elementos del bloque. Se separan por el "__"
+
+<div class="Bloque">
+    <img class="Bloque__Imagen" src="Imagen.jpg">
+</div> 
+
+Los modificadores son elementos muy parecidos entre sí. Se separan por el "--"
+
+<div class="Bloque">
+    <img class="Bloque__Imagen Bloque__Imagen--Arriba" src="Imagen1.jpg">
+    <img class="Bloque__Imagen Bloque__Imagen--Abajo" src="Imagen2.jpg">
+</div> 
+
+Hay que poner las dos clases: las del elemento y la del modificador, así toma todas las características que le corresponde.
+*/
+
+/* Hay que utilizar camelCase: nombre1Nombre2 o separarlas por guión medio: nombre1-nombre2 */
+
+/* Un bloque de BEM debe poder ser reutilizable y transferible a otro proyecto */
+
+/* Al haber varios bloques parecidos, por ejemplo, Seccion1__Heading y Seccion2__Heading, se puede usar la siguiente característica para que todas compartan código: */
+[class$="__heading"]{
+    text-align: center;
+}

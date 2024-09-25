@@ -1,0 +1,454 @@
+/* Conceptos */
+/* 1. Código en cascada: siempre se lee lo de más abajo. */
+/* 2. Hoja de estilos global para toda la web completa. */
+/* 3. Especificidad: a más específico es el selector, más se lo tiene en cuenta en CSS. Jerarquía de aplicación: #id a > .clase a > footer a > a. */
+/* 4. Convención: escribir con guiones. Ejemplo: navegacion-principal. */
+/* 5. Cajas contenedoras: para organizar elementos se puede recurrir al truco del div contenedor. */
+/* 6. Paradigmas de programación CSS: BEM, SMACSS, Utilidades, Módulos */
+/* 7. Ver especificidad: te colocás sobre el selector (Ej: .Clase) y ves el paréntesis (0,0,1). A más números a la izquierda es más específico */
+
+/* Páginas y aplicaciones útiles */
+/* 1. Práctica de Flexbox: https://flexboxfroggy.com/#es */
+/* 2. Ver como funciona el sitio en distintos dispositivos: aplicación Responsively. */
+/* 3. Página con Media Queries para tamaños estándares: https://css-tricks.com/snippets/css/media-queries-for-standard-devices/ */
+/* 4. Librería para poder poner archivos avif como fondo (se pega en un archivo .js y se lo vincula al HTML): https://gist.github.com/juanpablogdl/3bbdf0f2920cd9c65187128dd1c032cc */
+/* 5. Paletas de colores: https://mybrandnewlogo.com/es/generador-de-paleta-de-colores */
+
+
+/* Globales */
+/* 1. Etiqueta HTML */
+html {
+    /* El padding no engrosa y se mantienen medidas originales de width y height. Se consigue en: https://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+    box-sizing: border-box;
+    font-size: 62.5%; /* Esto hace que 1 rem = 10px */
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* 2. Imágenes ocupando todo el div */
+img{
+    max-width: 100%;
+    display:block; /* Soluciona separación entre imagen y siguiente elemento */
+}
+
+/* 3. Contenedores */
+.Contenedor{
+    /* Centra todos los elementos dentro de los contenedores en el documento */
+    max-width: 120rem;
+    margin: 0 auto;
+    width: 90% /* En caso de ser mayor a 120rem, queda en 90% de la pantalla */
+}
+
+
+/* Utilidades */
+/* Son "funciones" estándar que se pueden usar en elementos HTML como clases para hacer el código más limpio y sencillo. */
+
+.max-width-30{
+    max-width: 3rem;
+}
+
+
+/* Custom properties 
+Son propiedades personalizadas con el nombre que queremos */
+
+:root{
+    /* Definimos una paleta de colores; sirve por si nos da por cambiar los colores más tarde, lo único que hacemos es cambiar esto */
+    --colorPrimario: #1073BA;
+    --colorSecundario: #383838;
+    /* Lo mismo con las fuentes */
+    --fuentePrincipal: 'Fredoka', sans-serif;
+    --fuenteSecundaria: 'Roboto Serif', serif;
+    /* Una medida para usar en margin y padding también; los que queramos distintos, podemos usar calc (que permite cálculos) de esta forma:
+    padding: calc( var(--separacion) * 3)
+    Así, todos los padding o margin de la página van a guardar cierta relación de aspecto */
+    --separacion: 5rem;
+}
+
+body{
+    font-family: var(--fuentePrincipal);
+}
+
+
+/* Documentación */
+
+/* Fuente */
+
+p {
+    color:blue; /* Color */
+    font-size: 20px; /* Tamaño */
+    font-weight: bold; /* Grosor */
+    text-transform: uppercase; /* Pasar a mayúsculas */
+    text-transform: lowercase; /* Pasar a minúsculas */
+    text-transform: capitalize; /* Primer letra en mayúsculas */
+    text-decoration: none; /* Elimina el estilo por defecto */
+    text-align: center; /* Alineación */
+    font-family: Verdana, Geneva, Tahoma, sans-serif; /* Tipo */
+    line-height: 2; /* Interlineado */
+    text-decoration: line-through; /* Tachado */
+    text-shadow: 0 0 10px rgb(70, 37, 37); /* Borde */
+}
+
+@font-face {
+    /* Añadir nuevas fuentes. */
+    font-family: 'Roboto Serif', sans-serif;
+    src: url(#);
+}
+
+/* Degradado 
+Creamos una clase para ese degradado*/
+
+.Degradado{
+    /* Gradiente hacia la derecha, arranca con el color primario en el 0% y termina en el 100% con el color secundario */
+    background: linear-gradient(to right, var(--primario) 0%, var(--secundario) 100%);
+    /* Indica a qué se lo quiero aplicar */
+    -webkit-background-clip: text; /* Para navegadores que lo soportan solo con ese prefijo */
+    background-clip: text; 
+}
+
+
+/* Colores */
+
+h1{
+    /* Distintas formas de expresarlo. */
+    color: #000000;
+    color: rgb(rgb(148, 32, 32), rgb(30, 67, 30), rgb(19, 19, 151));
+}
+
+
+/* Especificidad con dos selectores */
+
+h1 span {
+    /* Especifica que los span de los h1 hacen determinada cosa. */
+    color:green;
+}
+
+
+/* Estilo con selectores */
+
+nav a:first-child{
+    /* Selecciona el primer enlace "hijo" de nav. */
+    color: black;
+}
+
+nav a:nth-child(3){
+    /* Selecciona el tercer enlace "hijo" (paréntesis, se cuenta desde 1) de nav. */
+    color: black;
+}
+
+nav a:last-child{
+    /* Selecciona el último enlace "hijo" de nav. */
+    color: black;
+}
+
+nav a:first-of-type{
+    /* Selecciona el primer elemento de ese tipo. */
+    color: black;
+}
+
+nav a:last-of-type{
+    /* Selecciona el último elemento de ese tipo. */
+    color: black;
+}
+
+.Clase > a{
+    /* Poniendo ese signo, solo aplica al primer nivel de hijos, a los demás no */
+    text-decoration: none;
+}
+
+nav a:nth-child(odd){
+    /* Selecciona los elementos pares de ese tipo. */
+    color: black;
+}
+
+nav a:nth-child(even){
+    /* Selecciona los elementos impares de ese tipo. */
+    color: black;
+}
+
+nav a:nth-child(2n+1){
+    /* Selecciona los elementos que cumplan con la fórmula. */
+    color: black;
+}
+
+/* Selectores tipo not*/
+
+.Clase input[type="text"],
+.Clase input[type="tel"],
+.Clase input:not([type="radio"]){ /* Se especifica que a un tipo de elemento no se le da ese formato */
+    width: 2rem;
+}
+
+p:not(.Clase1):not(.Clase2){
+    /* Eliminar varios selectores juntos */
+    width: 2rem;
+}
+
+
+/* Atributos */
+
+a[href="www.google.com"]{
+    /* Solo los enlaces que van a google.com */
+    color: brown;
+}
+
+a[href^="http"]{
+    /* Los enlaces que empiecen con http */
+    color: palegoldenrod;
+}
+
+a[href$=".com"]{
+    /* Los enlaces que terminan en .com */
+    color: plum;
+}
+
+/* Seleccionar primer elemento */
+
+h1::first-letter{
+    /* Primer letra */
+    text-decoration: none;
+}
+
+h1::first-line{
+    /* Primer línea */
+    text-align: center;
+}
+
+.Clase a + p{
+    /* Seleccionar primer elemento después del selector; en este caso, selecciona el p siguiente al enlace */
+    text-align: center;
+}
+
+
+/* Clases e ID */
+
+.clase a {
+    color: green;
+}
+
+.clase1.clase2{
+    /* Selecciono solo los elementos que tengan las dos clases */
+    color: orangered;
+}
+
+.Padre .Hijo {
+    /* Clase anidada: solo afecta a la clase si está dentro de la clase padre */
+    color: blue;
+}
+
+.Clase1,
+.Clase2{
+    /* Seleccionar las dos clases por separado */
+    color: gray;
+}
+
+#id a {
+    color: red;
+}
+
+
+/* Box Model 
+En CSS todo es una caja con 4 medidas: contenido, padding, borde y margen. */
+
+header{
+    background-color: red; /* Color de fondo */
+    width: 10rem; /* Ancho */
+    height: 10rem; /* Altura */
+    margin: 0; /* Margen: distancia externa de los bordes con otras cajas. */
+    padding: 0; /* Relleno: distancia interna del contenido con los bordes. */
+    box-sizing: border-box; /* Mantiene medidas originales de altura y anchura. El padding se posiciona por dentro.*/
+}
+
+
+/* Borde */
+
+.box{
+    border-color: black; /* Color */
+    border-style: solid; /* Estilo */
+    border-width: 1px; /* Grosor */
+
+    border: 1px solid black; /* Grosor, estilo y color */
+    border-radius: 30px; /* Esquinas redondeadas */
+    box-shadow: 0px 0px 15px 3px rgb(0 0 0 /.15); /* Sombra; en los colores de rgb, lo que está después de la barra es la transparencia; 0 totalmente transparente, 1 nada. */
+}  
+
+
+/* Imágenes de fondo */
+
+.Caja-contenedora{
+    background-image: url(../img/imagen.jpg); /* Imagen del fondo */
+    /* ".." se refiere a salir de la carpeta de la hoja de estilos "hacia atrás". */
+    background-image: linear-gradient(to right, transparent 50%, blue 100%); /* Degradado de colores en el fondo; transparente hasta el 50% y azul hasta el 100%.  */
+    background-repeat: no-repeat; /* No repetir fondo */
+    background-size: cover; /* Expande el fondo a la dimensión del div */
+    background-position: center center; /* La sección de la imagen que se muestra en el fondo, desde donde arranca */
+}
+
+/* Webp y Avif de fondo 
+Con esto se gana mucho en performance en el sitio web. 
+Snipet: web */
+
+.notavip.notwebp .Contenedor{
+    background-image: url(../img/imagen.jpg); /* Imagen del fondo JPG que carga si no funcan las otras dos */
+}
+
+.webp .Contenedor{
+    background-image: url(../img/imagen.webp); /* Imagen del fondo Webp */
+}
+
+.avif .Contenedor{
+    background-image: url(../img/imagen.avif); /* Imagen del fondo avif */
+}
+
+
+/* Centrar contenido de una caja*/
+
+.Caja-contenedora{
+    /* Se crea un div que contenga a los elementos.*/
+    max-width: 120px; /* Máxima anchura que puede tener*/
+    margin: 0 auto; /* El "auto" toma la distancia con los margenes izquierdo y derecho y los iguala.*/
+}
+
+
+/* Display 
+Es la forma en que se disponen los elementos hijos y todas las etiquetas tienen una por default (ejemplo: p se disponen uno abajo del otro). */
+
+nav{
+    display:block; /* El elemento se posiciona por debajo del otro y ocupa todo el ancho disponible */
+    display:inline; /* El elemento se posiciona a la derecha del otro. No se le aplica width, height, etc. */
+    display:inline-block; /* Al elemento se le puede dar un width, height, etc. */
+}
+
+
+/* Object Fit */
+
+img{
+    /* Dimensionado de imágenes y objetos. Se aplica solo al elemento que quiero dimensionar. */
+    object-fit: cover; /* Se extiende la imagen en un contenido, pero no se ve todo ni rebasa las medidas del contenedor. */
+}
+
+.Columnas{
+    grid-template-columns: 1fr 2fr;
+    /* Minmax requiere de dos elementos: en este caso, 250px, que es el punto límite de la pantalla, y 1fr, y si la pantalla es menor a 250px, otorga 1fr a cada uno. */
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+}
+
+
+/* Hover */
+
+a:hover{
+    /* Cuando pasa el mouse sobre el elemento, toma estas características. */
+    color: orange;
+}
+
+
+/* Boton */
+
+.Texto-del-boton a {
+    all: unset; /* Elimina todo el formato por defecto del navegador */
+    background-color: grey;
+    display: block; /* El enlace toma todo el ancho disponible */
+    color: white;
+    padding: 1rem;
+    cursor: pointer; /* El tipo de cursor que aparece cuando se pone encima */
+}
+
+/* Animaciones */
+
+/* Transformaciones en CSS */
+
+img:hover{
+    transform: scale(0.8); /* Achica la imagen a un 80% cuando pasa el mouse. */
+}
+
+.Boton{
+    background-color: red;
+    transition: background-color .3s ease-out; /* Cambia al color de fondo en el hover en .3 segundos, y el efecto es "ease-out" (hay otros)*/
+}
+
+.Boton:hover{
+    background-color: orange;
+}
+
+/* Rotación */
+
+.Contenedor{
+    /* Especifico que en la transición solo quiero que use el transform y el background-size*/
+    transition-property: transform background-size;
+    transition-duration: .3s; /* Duracion */
+    transition-delay: 1s; /* El delay entre que pase el mouse y la transición */
+}
+
+.Contenedor:hover{
+    transform: rotate(8deg);
+    background-size: 10rem;
+}
+
+
+/* Líneas diagonales en sección */
+
+/* Método 1 */
+
+.Mask{ /*Este es un div para englobar todo el contenedor */
+    overflow: hidden; /* Oculta lo que sobrepasa los límites de la pantalla, así no scrolleas hacia izquierda o derecha */
+}
+
+.Seccion{
+    transform: rotate(3deg) scale(1.5); /* El scale es para que se vea más grande y no se vean los espacios en blanco de los costados, ya que gira toda la sección */
+    margin: 50rem 0; /* En dispositivos chicos se necesita mucho margen arriba y abajo */
+}
+
+@media (min-width: 768px){
+    .Seccion{
+        margin: 30rem 0; 
+    }
+}
+
+.Seccion__Contenedor{
+    transform: rotate(-3deg) scale(.75); /* Esto "desrrota" y pone derecho, y también achica al contenido de la sección; lo que gira es la sección, no el contenido */
+}
+
+/* Método 2
+Más dinámico y adaptable que el anterior */
+
+.Seccion{
+    position: relative; /* Los demás elementos (hijos) toman como referencia esta posición para ubicarse */
+    padding: 20rem 0;
+    margin: 10rem 0;
+    overflow-x: hidden; /* No scrollea hacia los lados */
+}
+
+.Seccion::before,
+.Seccion::after{
+    background-color: beige; /* Color de relleno, anecdótico */
+    content: '';
+    height: 20rem;
+    width: 120%; /* Para tapar los restos de color en los costados */
+    position: absolute; /* Siempre son los hijos los de position absolute; esto hace que se muestren esas barras beige de esa altura y ancho antes y después de la sección */
+}
+
+.Seccion::after{
+    top: -10rem; /* Posiciono relativamente al padre */
+    left: 0;
+    transform: rotate(3deg);
+}
+
+.Seccion__Contenedor{
+    bottom: -10rem;
+    left: 0;
+    transform: rotate(3deg);
+}
+
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */

@@ -1,0 +1,26 @@
+Auto Complete Tag:
+Autocompleta las etiquetas mientras las vas escribiendo en HTML.
+
+Auto Close Tag:
+Automáticamente crea una etiqueta de cierre.
+
+Auto Rename Tag:
+Edita tanto la etiqueta de cierre como la del comienzo en HTML, para no tener que editarla dos veces.
+
+Live Server: 
+Con un click derecho y un "Open with Live Server" podés ver cómo se ve el código en el navegador.
+
+CSS Peek:
+Te parás sobre una clase en HTML y te muestra el código CSS que la define.
+
+Flatland Monokai Theme:
+Tema lindo, con colores oscuros y que hace buen contraste con el negro.
+
+Code Snippets de "Eduardo Liberato Sotero":
+Para simplificar código de React.
+
+ES7+ React/Redux/React-Native snippets:
+Con prefijos hace simplificar el código, son snippets.
+
+Simple React Snippets:
+Más Snippets de React.

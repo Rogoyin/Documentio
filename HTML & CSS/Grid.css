@@ -1,0 +1,63 @@
+/* Grid */
+/* Distribuye elementos en dos dimensiones: row y column. El contenido se agrupa dentro de un área definida. A diferencia de Flexbox, no es flexible. */
+
+.Productos{
+    display:grid;
+    /* Crear columnas */
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas de 1 fracción */
+    /* Crear filas */
+    grid-template-rows: repeat(3, 1fr);
+
+    column-gap: 1rem;  /* Separación de columnas entre sí */
+    row-gap: 1rem; /* Separación de filas entre sí */
+    gap: 1rem; /* Separación de columnas y filas entre sí */
+
+    grid-auto-flow: column; /* Evita espacios libres en columnas o filas */
+    grid-auto-flow: dense; /* Trata de llenar el grid lo más posible */
+
+    align-items: center; /* Alinear verticalmente */
+    justify-content: center; /* Alinear horizontalmente */
+    place-content: center; /* Align y justified en una sola línea */
+
+    /* Crear x columnas detectando los x elementos hijos */
+    grid-template-columns: repeat(auto-fill, 200px); /* Si hay más lugar, crea más columnas vacías hasta llenar contenedor */
+    grid-template-columns: repeat(auto-fit, 200px); /* Crea únicamente las columnas necesarias */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) /* minmax pone un valor mínimo y uno máximo para la columna. Si se achica la pantalla, crea nuevas filas */
+}
+
+.Producto_Hijo1{
+    /* Las columnas se toman como la línea fina que arranca desde el extremo izquierdo, y empieza en 1 */
+    grid-column: 2/3; /* Posicionar elemento desde la columna 2 a la 3. */
+
+    grid-column-start: 2; /* Lo mismo. */ 
+    grid-column-end: 3;
+
+    grid-column: 2/ span 5; /* El span determina cuantas columnas toma, en este caso, 5. De la grid line 2 hasta la 7 */
+}
+
+.Producto_Hijo2{
+    grid: repeat(2, 1fr) / repeat(3, 1fr); /* Shorthand: primero especifica filas, luego columnas */
+}
+
+/* Template areas*/
+.Contenedor{
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(2,1fr);
+    grid-template-areas: "Fila1Columna1 F1C2 F1C3"
+                         "Fila2 Columna1 F2C2 F2C3"
+    ; 
+    /* Nombra las áreas creadas con los columns o rows */
+}
+
+.Elemento{
+    grid-area: Fila1Columna1; /* Posiciona el elemento en esa área */
+}
+
+/* Template: shorthand */
+.Contenedor{
+    /* Rows, columns and areas */
+    display: grid;
+    grid-template: "Fila1Columna1 F1C2 F1C3" 1fr 
+                   "Fila2 Columna1 F2C2 F2C3" 2fr / repeat(2,1fr);
+    /* Las columnas se agregan al final, después de la barra */               
+}

@@ -1,0 +1,86 @@
+CTRL + SHIFT + P -> 
+"Preferences: Configure User Snippets" -> 
+Lenguaje.json
+
+HTML:
+prefix es el atajo de teclado que uso; 
+body lo que va a aparecer en pantalla.; 
+$1 quiere decir que ahí se posiciona el cursor; 
+$2 quiere decir que ahí se posiciona el segundo cursor, después de presionar TAB;
+\t es una identación.
+CSS:
+\n es un salto de línea.
+
+
+Snippets de HTML.
+
+Inicio de HTML (hm):
+"html-basico" : {
+    "prefix" : "hm",
+    "body" : [
+        "<!DOCTYPE html>",
+        "<html lang=\"es\">",
+        "",
+        "\t<head>",
+        "\t\t<meta charset=\"UTF-8\">",
+        "\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+        "\t\t<meta http-equiv=\"X-UA-Compatible\" content=\"IE-edge\">",
+        "\t\t<link rel=\"stylesheet\" href=\"Normalize.css\">",
+        "\t\t<!-- Acá va link a fuente elegida de Google Fonts. -->",
+        "\t\t<link rel=\"stylesheet\" href=\"Style.css\">",
+        "\t\t<title></title>",
+        "\t</head>",
+        "",
+        "\t<body>",
+        "",
+        "\t</body>",
+        "",
+        "\t<!-- Script para poder poner imágenes AVIF y Webp de fondo."
+        "\tSe copia de: https://gist.github.com/juanpablogdl/3bbdf0f2920cd9c65187128dd1c032cc -->",
+        "\t<script src=\"Imagenes.js\"></script>",
+        "",
+        "</html>"
+    ],
+}
+
+Imágenes (im):
+"imagenes" : {
+    "prefix" : "im",
+    "body" : [
+        "<picture>",
+        "\t<source srcset=\"$1.avif\" type=\"imagen.avif\">",
+        "\t<source srcset=\"$2.webp\" type=\"imagen.webp\">",
+        "\t<img loading=\"lazy\" src=\"$3\" alt=\"$4\" width=\"500\" height=\"600\" >",
+        "</picture>"
+    ]
+} 
+
+
+Snippets de CSS.
+
+Inicio de CSS (cs):
+"CSS Básico":{
+    "prefix" : "cs",
+    "body" : "/* Globales */\n\nhtml{\n\tbox-sizing: border-box;\n\tfont-size: 62.5%; \n}\n\n*, *:before, *:after{\n\tbox-sizing: inherit;\n}\n\nimg{\n\tmax-width: 100%;\n\tdisplay:block;\n}\n\n.Contenedor{\n\tmax-width: 120rem;\n\tmargin: 0 auto;\n}\n\n:root{\n\t--color1: #000001;\n\t--color2: #002c48;\n\t--color3: #006397;\n\t--color4: #00a3f2;\n\t--color5: #00ebff;\n\t--fuentePrincipal: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; \n\t--separacion: 3rem;\n}\n\nbody{\n\tfont-family: var(--fuentePrincipal);\n\tfont-size: 1.6rem;\n}\n\nh1,h2,h3{\n\tfont-weight: 900;\n\tmargin: 1rem 0 4rem 0;\n}\n\nh1{\n\tfont-size: 4.8rem;\n}\n\nh2{\n\tfont-size: 3.2rem;\n}\n\nh3{\n\tfont-size: 2.4rem;\n}\n\na{\n\ttext-decoration:none;\n}\n"
+},
+
+Media Queries (mq): 
+"Crea un Media Querie": {
+    "prefix" : "mq",
+    "body" : "@media (min-width: $1){\n 	$2\n}"
+},
+
+Fondos con webp y avif (web):
+"Fondos con webp y avif":{
+    "prefix" : "web",
+    "body" : ".notavip.notwebp .Contenedor{\n\tbackground-image: url($1.jpg);\n}\n\n.webp .Contenedor{\n\tbackground-image: url($2.webp);\n}\n\n.avif .Contenedor{\n\tbackground-image: url($3.avif);\n}"
+}
+
+
+
+	
+
+	
+
+
+

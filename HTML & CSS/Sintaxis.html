@@ -1,0 +1,289 @@
+<!-- Trucos de teclado -->
+<!-- 1. Crear apertura y cierre automático: escribís la etiqueta + TAB -->
+<!-- 2. Texto automático y aleatorio: escribís loren + TAB -->
+<!-- 3. Estructura básica de la página: ponés ! + TAB -->
+<!-- 4. Crear múltiples elementos: escribís la etiqueta * número + TAB -->
+<!-- 5. Crear div con clase automaticamente: .nombre-clase + TAB -->
+<!-- 6. Crear elemento con determinada clase automaticamente: p.clase + TAB -->
+
+<!-- Tips -->
+<!-- 1. Formatos modernos (y ligeros) de imágenes: avif (más ligero) y webp -->
+
+<!-- Páginas y aplicaciones útiles -->
+<!-- 1. Validar código HTML: en https://validator.w3.org/ -->
+<!-- 2. Averiguar qué funciones soportan los navegadores actuales: https://canIuse.com -->
+<!-- 3. Subir proyectos a Internet: Netlify -> Arrastrar carpeta de proyecto web a la página -->
+<!-- 4. Chequear rendimiento del sitio: extensión LightHouse de Chrome -->
+
+
+<!-- Estructura -->
+<html lang="es"> <!-- Lang: el idioma -->
+    
+<!-- Donde va información de la página y etiquetas -->
+    <head>
+        <!-- Etiqueta para caracteres en español, como la ñ -->
+        <meta charset="UTF-8">
+        <!-- Etiqueta para dar información al navegador -->
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <!-- Linkear a la hoja de estilos CSS de Normalize. -->
+        <link rel="stylesheet" href="Normalize.css"> <!-- Para que se vea igual en todos los navegadores. Se pone antes de la otra hoja de estilos principal. Se consigue en: https://necolas.github.io/normalize.css/.-->
+        <link rel="icon" href="icon.ico"> <!-- Pone un iconito en la pestaña del navegador. -->
+        <!-- Linkear a fuente elegida de Google Fonts. -->
+        <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- En la página puede verse el código que hay que poner en CSS. -->
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@200&display=swap" rel="stylesheet">
+        <!-- Linkear a la hoja de estilos CSS -->
+        <link rel="stylesheet" href="/Style.css">
+        <!-- Título en el navegador -->
+        <title></title>
+    </head>
+
+    <!-- Contenido de la página, lo que se ve -->
+    <body>
+
+        <!-- Encabezado de la página -->
+        <header>
+        </header>
+
+        <!-- Contenido principal -->
+        <main>
+            <!-- Secciones del main: el criterio es que el primer hijo es un heading y es una sección nueva -->
+            <section>
+                <!-- Contenido representativo de la página: entradas, noticias, etc. -->
+                <article>
+                </article>
+            </section>
+        </main>
+
+        <!-- Barra lateral -->
+        <aside>
+        </aside>
+
+    </body>
+
+    <!-- Pie de página -->
+    <footer>
+    </footer>
+</html>
+
+
+<!-- Párrafos -->
+<p>Este es un párrafo.</p>
+
+<!-- Formatos -->
+<em>Texto 1</em> <!-- Cursiva y pone énfasis -->
+<b>Texto 2</b> <!-- Negrita -->
+
+
+<!-- Navegación -->
+<nav>Este es un menú</nav>
+
+
+<!-- Headings -->
+<h1>Título 1</h1> <!-- Solo 1 por página -->
+<h2>Título 2</h2>
+<h3>Título 3</h3>
+<h4>Título 4</h4>
+<h5>Título 5</h5>
+<h6>Título 6</h6>
+
+
+<!-- Imágenes -->
+<div class="Imagen"> <!-- Recomendado: poner imágenes en contenedores, así le das ancho al contenedor en CSS y la imagen se ajusta a ese ancho -->
+    <img src="img/imagen.jpg" alt="Texto alternativo" width=200 height=300>
+    <!-- Agregar width y height en imágenes sube puntos en el SEO; por más que se cambien en CSS, es bueno poner uno predeterminado -->
+</div>
+
+<!-- Imágenes responsive -->
+<picture>
+    <!-- El source indica que imagen debe cargar primero, y no funciona para jpg; si no anda, carga la segunda, y así; el type especifica el tipo de imagen -->
+    <source srcset="img/imagen.avip" type="image/avif">
+    <source srcset="img/imagen.webp" type="image/webp">
+    <img src="img/imagen.jpg" alt="Texto alternativo">
+</picture>
+
+<!-- Loading: lazy y Decoding: async-->
+<!-- Carga la imagen solo cuando se llega ahí con el mouse, hace más rápida la página -->
+<img loading="lazy" decoding="async" src="img/imagen.jpg" alt="Texto alternativo">
+
+<!-- Formatos modernos con Src Set -->
+<!-- Especifica una imagen por cada tamaño de resolución de pantalla -->
+<picture>
+    <source
+        sizes="1920w, 1280w, 640w"
+        srcset="img/imagen.avif 1920w,
+                img/imagen-1000.avif 1280w,
+                img/imagen-700.avif 640w"
+        type="image/avif">
+    <source
+        sizes="1920w, 1280w, 640w"
+        srcset="img/imagen.webp 1920w,
+                img/imagen-1000.webp 1280w,
+                img/imagen-700.webp 640w"
+        type="image/webp">
+</picture>
+
+
+
+
+<!-- Enlaces -->
+<a href="hola.html"></a>
+<a href="tel:011-15-6005-5077"></a> <!-- Funciona solo en celulares: con un protocolo de mensaje, mandás a ese número de teléfono -->
+
+
+<!-- Bloque para demarcar del resto de la página -->
+<div></div>
+
+
+<!-- Listas y elementos -->
+
+<!-- Lista desordenada -->
+<ul>
+    <li></li> 
+</ul>
+
+<!-- Lista ordenada -->
+<ol>
+    <li></li> 
+</ol>
+
+
+<!-- Botón -->
+<!-- Opción 1 -->
+<a href="#"></a>
+
+<!-- Opción 2 -->
+<button></button>
+
+
+<!-- Escribir CSS en HTML -->
+<style>
+/* Código CSS */
+</style>
+
+
+<!-- Editar estilo del texto dentro de otro texto -->
+<p> Hola, <span>¿cómo estás?</span></p>
+
+
+<!-- Clase -->
+<p class="Parrafo"></p>
+<p class="Parrafo Texto"></p> <!-- Varias clases -->
+
+
+<!-- ID -->
+<p id="Texto"></p> <!-- Se usa solo un nombre por documento, es como un DNI -->
+
+
+<!-- Formulario -->
+<form action="#"> <!-- El action especifica a donde se envían los datos -->
+    
+    <fieldset> <!-- Agrupa campos relacionados -->
+        <legend>Datos</legend> <!-- Leyenda de los nombres del conjunto de campos -->
+        <div><!-- El div tiene display: block por defecto; posiciona un campo abajo del otro -->
+            <!-- Los inputs son entradas de datos -->
+            <input type="checkbox"> <!-- Caja de checkbox -->
+            <input type="text"> <!-- Caja para escribir -->
+            <input type="email"> <!-- Correo electrónico -->
+            <input type="file"> <!-- Subida de archivos -->
+            <input type="date"> <!-- Fecha -->
+            <input type="tel"> <!-- Teléfono -->
+            <input type="number"> <!-- Número -->
+            <input type="time"> <!-- Hora -->
+            <input type="datetime-local"> <!-- Hora y fecha -->
+            <input type="password"> <!-- Contraseña -->
+        </div>
+    </fieldset>
+
+    <!-- Label -->
+    <label for="Nombre">Nombre: </label> <!-- Es la etiqueta. El "for" es para que, al dar click en ese nombre, me lleve a la cajita. Tengo que poner el mismo ID de la cajita -->
+    <input id="Nombre" type="text" placeholder="Patricio"> <!-- Placeholder es la leyenda que aparece en la cajita -->
+    <input type="text" value="Valor"> <!-- El value da un valor por defecto -->
+    <input type="text" readonly> <!-- El readonly no permite escribir -->
+
+    <!-- Caja de mensajes -->
+    <textarea rows="20" cols="20"> <!-- Rows y cols son filas y columnas -->
+        Texto por defecto.
+    </textarea>
+
+    <!-- Select -->
+    <select><!-- Es la cajita que se desplega y elegís una opción -->
+        <option disabled>--- Seleccionar ---</option> <!-- El disabled no me permite elegirla -->
+        <option selected>Opción 1</option> <!-- El selected es por defecto -->
+        <option value="OP2">Opción 2</option> <!-- El value es el valor que se envía al lenguaje de programación backend -->
+        <option>Opción 3</option>
+    </select>
+
+    <!-- Radio Button -->
+    <label for="Opción1">Opción 1</label> <!-- Se puede elegir una sola opción de un listado -->
+    <input id="Opcion1" type="radio" name="Tipo"> <!-- El name debe ser el mismo -->
+
+    <label for="Opción2">Opción 2</label>
+    <input id="Opcion2" type="radio" name="Tipo">
+
+    <!-- Datalist -->
+    <input list="Opciones" name="Opciones"><!-- Lista desplegable en donde puedo escribir y se va autocompletando-->
+    <datalist id="Opciones">
+        <option value="Opción 1">
+        <option value="Opción 2">
+    </datalist>
+
+    <!-- Enviar formulario -->
+    <input type="submit" value="Enviar" required> <!-- El value es el valor que se ve del botón y el required dice que es necesario apretarlo -->
+  
+</form>
+
+
+<!-- Enlazar a JS 
+Se ponen abajo de todo -->
+
+<script src="Archivo.js"></script>
+
+<!-- Script para poder poner imágenes AVIF y Webp de fondo.
+Se copia de: https://gist.github.com/juanpablogdl/3bbdf0f2920cd9c65187128dd1c032cc -->
+<script src="Imagenes.js"></script>
+
+<!--  -->
+<!--  -->
+<!--  -->
+<!--  -->
+<!--  -->
+<!--  -->
+<!--  -->
+<!--  -->
+<!--  -->
+
+<html lang="es">
+
+    <title></title>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <link rel="stylesheet" href="normalize.css">
+        <!-- Acá va link a fuente elegida de Google Fonts. -->
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+
+    </body>
+
+    <!-- Script para poder poner imágenes AVIF y Webp de fondo.
+    Se copia de: https://gist.github.com/juanpablogdl/3bbdf0f2920cd9c65187128dd1c032cc -->
+    <script src="Imagenes.js"></script>
+
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>

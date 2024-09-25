@@ -1,0 +1,228 @@
+/* Header
+Modelo 01: https://ibb.co/B689cpN*/
+
+*/ Globales */
+
+html{
+    box-sizing: border-box;
+    font-size: 62.5%; 
+}
+
+*, *:before, *:after{
+    box-sizing: inherit;
+}
+
+img{
+    max-width: 100%;
+    display:block;
+}
+
+.Contenedor{
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+:root{
+    --colorPrimario: #FFF;
+    --colorSecundario: #111111;
+    --colorTerciario: #343A40;
+    --fuentePrincipal: sans-serif; 
+    --separacion: 2rem;
+}
+
+body{
+    font-family: var(--fuentePrincipal);
+    font-size: 1.6rem;
+}
+
+h1,h2,h3{
+    font-weight: 900;
+    margin: 1rem 0 4rem 0;
+}
+
+h1{
+    font-size: 4.8rem;
+}
+
+h2{
+    font-size: 3.2rem;
+}
+
+h3{
+    font-size: 2.4rem;
+}
+
+a{
+    text-decoration:none;
+}
+
+
+/* Header */
+
+/* <header class="Header">
+    <div class="Contenedor Contenido-Header">
+        <div class="Barra">
+            <div class="Logo">
+                <h1 class="Nombre-Sitio">
+                    Arquitectura<span>Bosque</span>
+                </h1>
+            </div>
+
+            <div class="Contacto">
+                <a class="Telefono" href="tel:01-800-0000-000">01-800-0000-000</a>
+
+                <nav class="Navegacion">
+                    <a class="link" href="#">Inicio</a>
+                    <a class="link" href="#">Nosotros</a>
+                    <a class="link" href="#">Modelos</a>
+                    <a class="link" href="#">Galería</a>
+                    <a class="link" href="#">Contacto</a>
+                </nav>
+            </div>
+        </div>
+        <div class="Slogan">
+            <h1>Tu casa en el bosque</h1>
+            <p>Construimos la casa de tus sueños</p>
+        </div>
+    </div>
+</header> */
+
+.Header{
+    min-height: 60rem; /* La altura mínima del header es 600px */
+    background-image: url(#);
+    background-repeat: no-repeat;
+    background-size: cover; /* La imagen se posiciona en todo el área del header */
+    background-position: center;
+    padding: 5rem 0;
+}
+
+@media (min-width: 768px){
+    /* Para dispositivos grandes la separación es menor */
+     .Header{
+         padding: 2rem 0;
+     }
+}
+
+.Contenido-Header{
+    display: flex;
+    flex-direction: column;
+    height: calc(60rem - 4rem);
+    justify-content: space-between;
+    color: var(--blanco);
+}
+
+.Nombre-Sitio{
+    font-weight: 300;
+    text-align: center;
+    font-size: 3rem;
+}
+
+@media (min-width: 768px){ 
+    .Nombre-Sitio {
+        font-size: 5rem;
+    }
+}
+
+.Nombre-Sitio span{
+    font-weight: 900;
+}
+
+@media (min-width: 768px){ 
+    .Barra {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.Contacto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width: 768px){ 
+    .Contacto {
+        align-items: flex-end;
+    }
+}
+
+.Telefono{
+    display: flex;
+}
+
+.Telefono::before{ /* Coloca un elemento antes (after para después). En este caso, es para agregar un ícono. Esto es útil para esas cosas */
+    content: ''; /* Contenido que se crea antes del teléfono. Lo dejo vacío porque se agrega un background-image después o alguna imagen */
+    display: block;
+    width: 4rem; /* Sin el display: block, no se toman en cuenta el width y el height de la imagen que ponés en background-image */
+    height: 4rem;
+    background-image: url(../img/telefono.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin-right: 1rem;
+}
+
+.Header a{
+    color: var(--blanco);
+    font-size: 2rem;
+}
+
+.Navegacion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+@media (min-width: 768px){ 
+    .Navegacion{
+        flex-direction: row;
+    }
+}
+
+.Navegacion a{
+    padding: .5rem;
+    transition: background-color 300ms;
+    width: 100%;
+    text-align: center;
+}
+
+@media (min-width: 768px){ 
+    .Navegacion a {
+        padding: 1rem 2rem;
+    }
+}
+
+.Navegacion a:hover{
+    background-color: rgb( 255 255 255 / .5 ); /*Lo que va después de la barra es la transparencia */
+    color: var(--negro);
+}
+
+.Slogan{
+    text-align: center;
+}
+
+@media (min-width: 768px){ 
+    .Slogan{
+        text-align: right;
+    }
+}
+
+.Slogan h1{
+    font-size: 3rem;
+    margin: 0;
+}
+
+@media (min-width: 768px){ 
+    .Slogan h1{
+        font-size: 5rem;
+    }
+}
+
+.Slogan p{
+    margin: 0;
+    line-height: 1;
+}
+
+

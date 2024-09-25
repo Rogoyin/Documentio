@@ -1,0 +1,141 @@
+/* Footer
+Modelo 01 */
+
+/* <footer class="Footer mt-5">
+    <div class="Contenedor">
+        <div class="Barra">
+            <div class="Logo">
+                <h1 class="Nombre-Sitio">
+                    Arquitectura<span>Bosque</span>
+                </h1>
+            </div>
+
+            <div class="Contacto">
+                <a class="telefono" href="tel:01-800-0000-000">01-800-0000-000</a>
+
+                <nav class="Navegacion">
+                    <a class="Link" href="#">Inicio</a>
+                    <a class="Link" href="#">Nosotros</a>
+                    <a class="Link" href="#">Modelos</a>
+                    <a class="Link" href="#">Galería</a>
+                    <a class="Link" href="#">Contacto</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <p class="Copyright">Todos los derechos reservados &copy; </p>
+</footer> */
+
+.Footer {
+    height: 50rem;
+    background-image: url(../img/footer_bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    color: var(--blanco);
+}
+.Footer a {
+    color: var(--blanco);
+    font-size: 2rem;
+}
+
+.Copyright {
+    background-color: var(--negro);
+    text-align: center;
+    margin: 5rem 0 0 0;
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+
+/* Guía de estilos 
+Son estilos que pueden servir tanto para un header como para un footer, o la sección que sea */
+
+.Nombre-Sitio{
+    font-weight: 300;
+    text-align: center;
+    font-size: 3rem;
+}
+
+@media (min-width: 768px){ 
+    .Nombre-Sitio {
+        font-size: 5rem;
+    }
+}
+
+.Nombre-Sitio span{
+    font-weight: 900;
+}
+
+@media (min-width: 768px){ 
+    .Barra {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.Contacto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width: 768px){ 
+    .Contacto {
+        align-items: flex-end;
+    }
+}
+
+.Telefono{
+    display: flex;
+}
+
+.Telefono::before{ /* Coloca un elemento antes (after para después). En este caso, es para agregar un ícono. Esto es útil para esas cosas */
+    content: ''; /* Contenido que se crea antes del teléfono. Lo dejo vacío porque se agrega un background-image después o alguna imagen */
+    display: block;
+    width: 4rem; /* Sin el display: block, no se toman en cuenta el width y el height de la imagen que ponés en background-image */
+    height: 4rem;
+    background-image: url(../img/telefono.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin-right: 1rem;
+}
+
+.Navegacion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+@media (min-width: 768px){ 
+    .Navegacion{
+        flex-direction: row;
+    }
+}
+
+.Navegacion a{
+    padding: .5rem;
+    transition: background-color 300ms;
+    width: 100%;
+    text-align: center;
+}
+
+@media (min-width: 768px){ 
+    .Navegacion a {
+        padding: 1rem 2rem;
+    }
+}
+
+.Navegacion a:hover{
+    background-color: rgb( 255 255 255 / .5 ); /*Lo que va después de la barra es la transparencia */
+    color: var(--negro);
+}

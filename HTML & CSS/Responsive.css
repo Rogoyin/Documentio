@@ -1,0 +1,107 @@
+/* Responsive */
+
+/* Media queries */
+/* La resolución que se especifica tiene propiedades que se especifican también dentro del mismo media querie.
+Las propiedades del media querie tienen prioridad sobre las propiedades fuera de él. */
+
+
+/* Enfoques.
+
+Mobile First
+Uno empieza con un ancho muy angosto poniendo estilos, y los MQ van a tener en cuenta dispositivos más anchos como computadoras o tablets. */
+/* Se colocan del más chiquito al más grande, en orden. Ej: min-width de 600px, abajo el min-width de 900px, etc. */
+
+@media(min-width:600px){ /*Los media queries no soportan rem */
+    /* En este media querie dice que lo que va desde 600px (el mínimo) para arriba cumple con las propiedades de abajo */
+    body{
+        background-color: black;
+    }
+}
+
+/* Deskstop First
+Uno empieza con el formato de escritorio y los MQ sentencian las propiedades para dispositivos menos anchos */
+/* Se colocan del más grande al más chiquito, en orden. Ej: max-width de 900px, abajo el max-width de 600px, etc. */
+
+@media(max-width:600px){ 
+    /* En este media querie dice que lo que va desde 0 a 600px cumple con las propiedades de abajo */
+    body{
+        background-color: orange;
+    }
+}
+
+/* Entre dos tamaños o más */
+
+@media(min-width:800px) and (max-width:1200px), (min-width:1400px){
+    /* Desde 800 hasta 1200px y de 1400px para arriba. */
+    body{
+        background-color: gold;
+    }
+}
+
+/* MQ estandar */
+
+/* Smartwach */
+@media (min-width: 218px) { 
+    body{
+        background-color:rgb(19, 19, 151);
+    }
+}
+
+/* Dispositivos chicos (celulares) */
+@media (min-width: 576px) { 
+    body{
+        background-color:rgb(19, 19, 151);
+    }
+}
+
+/* Dispositivos medianos (tablets) */
+@media (min-width: 768px) { 
+    body{
+        background-color:rgb(19, 19, 151);
+    }
+}
+
+/* Laptops */
+@media (min-width: 1024px) { 
+    body{
+        background-color:rgb(19, 19, 151);
+    }
+}
+
+/* Computadoras */
+@media (min-width: 1200px) { 
+    body{
+        background-color:rgb(19, 19, 151);
+    }
+}
+
+/* Contenedor responsive */
+
+.Contenedor{
+    margin: 0 auto;
+    width: 90%; /* Toma el ancho del contenedor padre */
+    max-width: 100rem; /* Máximo valor */
+    width: min(90%,100rem); /* Lo mismo que las dos líneas de arriba */
+}
+
+/* Columnas responsive en Flexbox */
+
+@media (min-width: 768px) { 
+    .Tres-Columnas{
+        display:flex;
+        gap:1rem;
+    }
+    .Columna{
+        flex:1;
+    }
+}
+
+/* Columnas responsive en Grid */
+
+@media (min-width: 768px) { 
+    .Tres-Columnas{
+        display:grid;
+        grid-template-columns: repeat(3,1fr);
+        column-gap:1rem;
+    }
+}
