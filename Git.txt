@@ -15,7 +15,7 @@ git config --global user.email "patricioe.nogueroles@gmail.com"
 cd 'C:\Users\tomas\Documents\Programación\Github\Patricionog'
 5. Buscar el link del repositorio en el repositorio web: es el HTTPS.
 6. Clonar repositorio (Comando de git + Link HTTPS + 'Nombre de la carpeta'):
-git --clone https://github.com/usuario/nombre-del-repositorio.git https://github.com/patricionog/Tesio.git Tesis
+git clone https://github.com/patricionog/Tesio.git Tesio
 7. Si tenés archivos que quieras agregar, los copiás a esa carpeta y navegás al terminal a ella. Ahí ponés:
 git add .
 8. Si querés "empujar" (push) los cambios que hiciste en la carpeta al repositorio:
