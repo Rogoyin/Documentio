@@ -19,13 +19,14 @@ git --clone https://github.com/usuario/nombre-del-repositorio.git https://github
 7. Si tenés archivos que quieras agregar, los copiás a esa carpeta y navegás al terminal a ella. Ahí ponés:
 git add .
 8. Si querés "empujar" (push) los cambios que hiciste en la carpeta al repositorio:
-git push main
+git push -u origin main
 
 Resumen:
 1. git config --global user.name "patricionog"
 2. git config --global user.email "patricioe.nogueroles@gmail.com"
 3. cd 'C:\Users\tomas\Documents\Programación\Github'
-4. git clone https://github.com/usuario/nombre-del-repositorio.git https://github.com/patricionog/Tesio.git Tesis
+4. git clone https://github.com/patricionog/Tesio.git Tesis
+5. git push -u origin main
 
 
 #### VERIFICAR ESTADO DEL REPOSITORIO.
@@ -36,7 +37,7 @@ git status
 
 #### EMPUJAR CAMBIOS (PUSH).
 
-git push main
+git push -u origin main
 
 
 #### AGREGAR ARCHIVOS DE LA CARPETA LOCAL AL REPOSITORIO.
