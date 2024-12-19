@@ -91,4 +91,5 @@ CTRL + SHIFT + E
 Push 
 CTRL + SHIFT + P
 
-
+Chat con copilot
+CTRL + SHIFT + I
